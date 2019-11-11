@@ -9,7 +9,7 @@ begin
 DBMS_CLOUD.create_credential( 
     credential_name => 'OBJ_STORE_CRED', 
     username => 'dataload',
-    password => 'kHgO<WLw6Pfz0R1:Pvx1'
+    password => 'OFpN:.6Q{ISz{iK.G-_h'
     ); 
 end;
 /
@@ -18,12 +18,12 @@ select CREDENTIAL_NAME from dba_credentials;
 SELECT * 
 FROM table(dbms_cloud.list_objects(
              credential_name => 'OBJ_STORE_CRED', 
-             location_uri => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/idzo73zlod7f/b/CODE/o/'
+             location_uri => 'https://objectstorage.ap-sydney-1.oraclecloud.com/n/sde0oema7qtx/b/CODE/o/'
            ));
 /
 SELECT * 
 FROM table(dbms_cloud.list_objects(
              credential_name => 'OBJ_STORE_CRED', 
-             location_uri => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/idzo73zlod7f/b/DATA-PUMP/o/'
+             location_uri => 'https://objectstorage.ap-sydney-1.oraclecloud.com/n/sde0oema7qtx/b/DATA-PUMP/o/'
            ));
 /

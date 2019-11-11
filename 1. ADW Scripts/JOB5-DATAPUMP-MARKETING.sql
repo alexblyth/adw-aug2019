@@ -1,6 +1,9 @@
 set scan off
 set serveroutput on
 set escape off
+REM ERPDEMO02 Tables 3
+
+drop table ADMIN."IMP_MARKETING_DMP-1";
 
 DECLARE
     s varchar2(1000); 
@@ -19,7 +22,7 @@ begin
     dbms_datapump.set_parallel(handle => h1, degree => 1); 
     dbms_datapump.add_file(handle => h1, filename => 'IMPORT-'||to_char(sysdate,'hh24_mi_ss')||'.LOG', directory => 'DATA_PUMP_DIR', filetype=>DBMS_DATAPUMP.KU$_FILE_TYPE_LOG_FILE); 
     dbms_datapump.set_parameter(handle => h1, name => 'KEEP_MASTER', value => 1); 
-    dbms_datapump.add_file(handle => h1, filename => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/idzo73zlod7f/b/DATA-PUMP/o/Marketing.dmp', directory => 'OBJ_STORE_CRED', filetype => 5); 
+    dbms_datapump.add_file(handle => h1, filename => 'https://objectstorage.ap-sydney-1.oraclecloud.com/n/sde0oema7qtx/b/DATA-PUMP/o/Marketing.dmp', directory => 'OBJ_STORE_CRED', filetype => 5); 
     dbms_datapump.set_parameter(handle => h1, name => 'INCLUDE_METADATA', value => 1); 
     dbms_datapump.set_parameter(handle => h1, name => 'DATA_ACCESS_METHOD', value => 'AUTOMATIC'); 
     dbms_datapump.set_parameter(handle => h1, name => 'REUSE_DATAFILES', value => 1); 
